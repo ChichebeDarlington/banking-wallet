@@ -38,110 +38,67 @@ function App() {
   return (
     <div>
       <BrowserRouter>
-        <Routes>
-          <Route
-            path="/"
-            element={
-              <ProtectedRroute>
-                <Layout />
-              </ProtectedRroute>
-            }
-          >
-            <Route index element={<Home />} />
+        <Suspense fallback={<Loader />}>
+          <Routes>
             <Route
-              path="transactions"
+              path="/"
               element={
-                <Suspense fallback={<Loader />}>
-                  <Transactions />
-                </Suspense>
+                <ProtectedRroute>
+                  <Layout />
+                </ProtectedRroute>
               }
-            />
-            <Route
-              path="requests"
-              element={
-                <Suspense fallback={<Loader />}>
-                  <Request />
-                </Suspense>
-              }
-            />
-            <Route
-              path="users"
-              element={
-                <Suspense fallback={<Loader />}>
-                  <Users />
-                </Suspense>
-              }
-            />
-            <Route
-              path="profile"
-              element={
-                <Suspense fallback={<Loader />}>
-                  <Profile />
-                </Suspense>
-              }
-            />
-            <Route
-              path="loader"
-              element={
-                <Suspense fallback={<Loader />}>
-                  <Loader />
-                </Suspense>
-              }
-            />
-          </Route>
+            >
+              <Route index element={<Home />} />
+              <Route path="transactions" element={<Transactions />} />
+              <Route path="requests" element={<Request />} />
+              <Route path="users" element={<Users />} />
+              <Route path="profile" element={<Profile />} />
+              <Route path="loader" element={<Loader />} />
+            </Route>
 
-          <Route
-            path="/signup"
-            element={
-              <PublicRoute fallback={<Loader />}>
-                <Suspense>
+            <Route
+              path="/signup"
+              element={
+                <PublicRoute fallback={<Loader />}>
                   <SignUp />
-                </Suspense>
-              </PublicRoute>
-            }
-          />
-          <Route
-            path="/verify-email/:_id/:emailToken"
-            element={
-              <PublicRoute>
-                <Suspense fallback={<Loader />}>
+                </PublicRoute>
+              }
+            />
+            <Route
+              path="/verify-email/:_id/:emailToken"
+              element={
+                <PublicRoute>
                   <VerifyEmail />
-                </Suspense>
-              </PublicRoute>
-            }
-          />
-          <Route
-            path="/signin"
-            element={
-              <PublicRoute>
-                <Suspense fallback={<Loader />}>
+                </PublicRoute>
+              }
+            />
+            <Route
+              path="/signin"
+              element={
+                <PublicRoute>
                   <SignIn />
-                </Suspense>
-              </PublicRoute>
-            }
-          />
-          <Route
-            path="/forgot-password"
-            element={
-              <PublicRoute>
-                <Suspense fallback={<Loader />}>
+                </PublicRoute>
+              }
+            />
+            <Route
+              path="/forgot-password"
+              element={
+                <PublicRoute>
                   <ForgotPassword />
-                </Suspense>
-              </PublicRoute>
-            }
-          />
+                </PublicRoute>
+              }
+            />
 
-          <Route
-            path="reset-password/:_id/:token"
-            element={
-              <PublicRoute>
-                <Suspense fallback={<Loader />}>
+            <Route
+              path="reset-password/:_id/:token"
+              element={
+                <PublicRoute>
                   <ResetPassword />
-                </Suspense>
-              </PublicRoute>
-            }
-          />
-        </Routes>
+                </PublicRoute>
+              }
+            />
+          </Routes>
+        </Suspense>
       </BrowserRouter>
     </div>
   );
