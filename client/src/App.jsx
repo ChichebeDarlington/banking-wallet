@@ -43,18 +43,51 @@ function App() {
             path="/"
             element={
               <ProtectedRroute>
-                <Suspense fallback={<Loader />}>
-                  <Layout />
-                </Suspense>
+                <Layout />
               </ProtectedRroute>
             }
           >
             <Route index element={<Home />} />
-            <Route path="transactions" element={<Transactions />} />
-            <Route path="requests" element={<Request />} />
-            <Route path="users" element={<Users />} />
-            <Route path="profile" element={<Profile />} />
-            <Route path="loader" element={<Loader />} />
+            <Route
+              path="transactions"
+              element={
+                <Suspense fallback={<Loader />}>
+                  <Transactions />
+                </Suspense>
+              }
+            />
+            <Route
+              path="requests"
+              element={
+                <Suspense fallback={<Loader />}>
+                  <Request />
+                </Suspense>
+              }
+            />
+            <Route
+              path="users"
+              element={
+                <Suspense fallback={<Loader />}>
+                  <Users />
+                </Suspense>
+              }
+            />
+            <Route
+              path="profile"
+              element={
+                <Suspense fallback={<Loader />}>
+                  <Profile />
+                </Suspense>
+              }
+            />
+            <Route
+              path="loader"
+              element={
+                <Suspense fallback={<Loader />}>
+                  <Loader />
+                </Suspense>
+              }
+            />
           </Route>
 
           <Route
