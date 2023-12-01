@@ -37,9 +37,9 @@ const VerifyEmail = React.lazy(() => import("./pages/verifyEmail/VerifyEmail"));
 function App() {
   return (
     <div>
-      <Suspense fallback={<Loader />}>
-        <BrowserRouter>
-          <Routes>
+      <BrowserRouter>
+        <Routes>
+          <Suspense fallback={<Loader />}>
             <Route
               path="/"
               element={
@@ -55,7 +55,9 @@ function App() {
               <Route path="profile" element={<Profile />} />
               <Route path="loader" element={<Loader />} />
             </Route>
+          </Suspense>
 
+          <Suspense fallback={<Loader />}>
             <Route
               path="/signup"
               element={
@@ -97,9 +99,9 @@ function App() {
                 </PublicRoute>
               }
             />
-          </Routes>
-        </BrowserRouter>
-      </Suspense>
+          </Suspense>
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }
