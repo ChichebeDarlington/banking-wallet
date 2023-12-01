@@ -10,6 +10,8 @@ import { setReloadUser } from "../../redux/features/userSlice";
 import { useDispatch, useSelector } from "react-redux";
 import Loader from "../../components/Loader";
 
+console.log(import.meta.env);
+
 const Transactions = () => {
   const [showTransferModal, setShowTransferModal] = useState(false);
   const [showDepositModal, setShowDepositModal] = useState(false);

@@ -4,7 +4,10 @@ const token = localStorage.getItem("token");
 // console.log(token);
 
 export const axiosInstance = axios.create({
-  baseURL: "http://localhost:3000/api",
+  baseURL:
+    import.meta.env.MODE === "development"
+      ? import.meta.env.VITE_DEV_API_URL
+      : import.meta.env.VITE_PROD_API_URL,
   headers: {
     Authorization: `Bearer ${token}`,
     "Content-Type": "application/json",
