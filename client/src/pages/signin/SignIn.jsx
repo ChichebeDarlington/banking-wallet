@@ -14,8 +14,8 @@ const SignIn = () => {
     dispatch(setReloadUser(true));
     try {
       const response = await SignInUser(values);
-      localStorage.setItem("token", response.token);
       if (response.success) {
+        localStorage.setItem("token", response.token);
         message.success(response.msg);
         window.location.href = "/";
         dispatch(setReloadUser(false));
