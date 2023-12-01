@@ -16,7 +16,8 @@ app.use("/api/user", userRoute);
 app.use("/api/transact", transactRoute);
 app.use("/api/request", requestRoute);
 
-mongoose.connect("mongodb://0.0.0.0:27017/wallet");
+// mongoose.connect("mongodb://0.0.0.0:27017/wallet");
+mongoose.connect(process.env.MONGO_URI);
 const connectDB = mongoose.connection;
 connectDB.on("error", () => {
   console.log("Error while connecting to database");
