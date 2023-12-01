@@ -60,8 +60,10 @@ function App() {
           <Route
             path="/signup"
             element={
-              <PublicRoute>
-                <SignUp />
+              <PublicRoute fallback={<Loader />}>
+                <Suspense>
+                  <SignUp />
+                </Suspense>
               </PublicRoute>
             }
           />
@@ -69,7 +71,9 @@ function App() {
             path="/verify-email/:_id/:emailToken"
             element={
               <PublicRoute>
-                <VerifyEmail />
+                <Suspense fallback={<Loader />}>
+                  <VerifyEmail />
+                </Suspense>
               </PublicRoute>
             }
           />
@@ -77,7 +81,9 @@ function App() {
             path="/signin"
             element={
               <PublicRoute>
-                <SignIn />
+                <Suspense fallback={<Loader />}>
+                  <SignIn />
+                </Suspense>
               </PublicRoute>
             }
           />
@@ -85,7 +91,9 @@ function App() {
             path="/forgot-password"
             element={
               <PublicRoute>
-                <ForgotPassword />
+                <Suspense fallback={<Loader />}>
+                  <ForgotPassword />
+                </Suspense>
               </PublicRoute>
             }
           />
@@ -94,7 +102,9 @@ function App() {
             path="reset-password/:_id/:token"
             element={
               <PublicRoute>
-                <ResetPassword />
+                <Suspense fallback={<Loader />}>
+                  <ResetPassword />
+                </Suspense>
               </PublicRoute>
             }
           />
