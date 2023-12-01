@@ -39,67 +39,65 @@ function App() {
     <div>
       <BrowserRouter>
         <Routes>
-          <Suspense fallback={<Loader />}>
-            <Route
-              path="/"
-              element={
-                <ProtectedRroute>
+          <Route
+            path="/"
+            element={
+              <ProtectedRroute>
+                <Suspense fallback={<Loader />}>
                   <Layout />
-                </ProtectedRroute>
-              }
-            >
-              <Route index element={<Home />} />
-              <Route path="transactions" element={<Transactions />} />
-              <Route path="requests" element={<Request />} />
-              <Route path="users" element={<Users />} />
-              <Route path="profile" element={<Profile />} />
-              <Route path="loader" element={<Loader />} />
-            </Route>
-          </Suspense>
+                </Suspense>
+              </ProtectedRroute>
+            }
+          >
+            <Route index element={<Home />} />
+            <Route path="transactions" element={<Transactions />} />
+            <Route path="requests" element={<Request />} />
+            <Route path="users" element={<Users />} />
+            <Route path="profile" element={<Profile />} />
+            <Route path="loader" element={<Loader />} />
+          </Route>
 
-          <Suspense fallback={<Loader />}>
-            <Route
-              path="/signup"
-              element={
-                <PublicRoute>
-                  <SignUp />
-                </PublicRoute>
-              }
-            />
-            <Route
-              path="/verify-email/:_id/:emailToken"
-              element={
-                <PublicRoute>
-                  <VerifyEmail />
-                </PublicRoute>
-              }
-            />
-            <Route
-              path="/signin"
-              element={
-                <PublicRoute>
-                  <SignIn />
-                </PublicRoute>
-              }
-            />
-            <Route
-              path="/forgot-password"
-              element={
-                <PublicRoute>
-                  <ForgotPassword />
-                </PublicRoute>
-              }
-            />
+          <Route
+            path="/signup"
+            element={
+              <PublicRoute>
+                <SignUp />
+              </PublicRoute>
+            }
+          />
+          <Route
+            path="/verify-email/:_id/:emailToken"
+            element={
+              <PublicRoute>
+                <VerifyEmail />
+              </PublicRoute>
+            }
+          />
+          <Route
+            path="/signin"
+            element={
+              <PublicRoute>
+                <SignIn />
+              </PublicRoute>
+            }
+          />
+          <Route
+            path="/forgot-password"
+            element={
+              <PublicRoute>
+                <ForgotPassword />
+              </PublicRoute>
+            }
+          />
 
-            <Route
-              path="reset-password/:_id/:token"
-              element={
-                <PublicRoute>
-                  <ResetPassword />
-                </PublicRoute>
-              }
-            />
-          </Suspense>
+          <Route
+            path="reset-password/:_id/:token"
+            element={
+              <PublicRoute>
+                <ResetPassword />
+              </PublicRoute>
+            }
+          />
         </Routes>
       </BrowserRouter>
     </div>
