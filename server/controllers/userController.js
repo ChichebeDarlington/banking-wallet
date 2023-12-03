@@ -59,7 +59,7 @@ export const register = async (req, res) => {
     //   expiresIn: "1d",
     // });
 
-    const from = "chichebewebdev@outlook.com";
+    const from = "chichebewebdev@gmail.com";
     const to = user.email;
     const subject = "Verify your account";
     const text = "Account verification";
@@ -128,7 +128,7 @@ export const login = async (req, res) => {
     }
 
     const token = jwt.sign({ _id: user._id }, "jwt-secret", {
-      expiresIn: "1d",
+      expiresIn: "7d",
     });
 
     return res
@@ -160,7 +160,7 @@ export const forgotPassword = async (req, res) => {
     });
 
     // const from = `"Lion Pizza" 'Lion Wallet 👻" <lionwallet@gmail.com> '`;
-    const from = "chichebewebdev@outlook.com";
+    const from = "chichebewebdev@gmail.com";
     const to = user.email;
     const subject = "Reset your password";
     const text = "Some text";
