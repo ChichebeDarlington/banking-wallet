@@ -102,16 +102,16 @@ const Transactions = () => {
   return (
     <div className="">
       <div className="flex justify-between items-center">
-        <PageTitle title={"Transactions"} />
-        <div className="flex gap-1">
+        <PageTitle title={"Transactions"} className="title" />
+        <div className="flex gap-1 btn-div">
           <button
-            className="primary-contained-btn"
+            className="primary-contained-btn deposit"
             onClick={() => setShowDepositModal(true)}
           >
             Deposit
           </button>
           <button
-            className="primary-contained-btn"
+            className="primary-contained-btn transfer"
             onClick={() => setShowTransferModal(true)}
           >
             Transter
