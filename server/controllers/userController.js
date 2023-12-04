@@ -161,11 +161,12 @@ export const forgotPassword = async (req, res) => {
     });
 
     // const from = `"Lion Pizza" 'Lion Wallet 👻" <lionwallet@gmail.com> '`;
+    const prodAPIUri = "https://my-wallet-app-tgwm.onrender.com";
     const from = "chichebewebdev@gmail.com";
     const to = user.email;
     const subject = "Reset your password";
     const text = "Some text";
-    const html = `<p>Hey ${user.firstName} ${user.lastName}, please reset your password by clicking the link below...</p> <a href="http://localhost:5173/reset-password/${user._id}/${token}">Reset your password</a>`;
+    const html = `<p>Hey ${user.firstName} ${user.lastName}, please reset your password by clicking the link below...</p> <a href="${prodAPIUri}/reset-password/${user._id}/${token}">Reset your password</a>`;
 
     await sendEmail({ from, to, subject, text, html });
     return res.status(201).json({
