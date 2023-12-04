@@ -69,7 +69,7 @@ const Users = () => {
       dataIndex: "mobile",
     },
     {
-      title: "verified",
+      title: "Verified",
       dataIndex: "isVerified",
       render: (text, record) => (text ? "Yes" : "No"),
     },
