@@ -82,14 +82,14 @@ const Users = () => {
             className="primary-outline-btn"
             onClick={() => userUpdateMethod(record, false)}
           >
-            Decline
+            Reject
           </button>
         ) : (
           <button
             className="primary-outline-btn"
             onClick={() => userUpdateMethod(record, true)}
           >
-            Accept
+            Verify
           </button>
         ),
     },
