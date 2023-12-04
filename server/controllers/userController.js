@@ -59,11 +59,12 @@ export const register = async (req, res) => {
     //   expiresIn: "1d",
     // });
 
+    const prodAPIUri = "https://server-wallet.onrender.com/api";
     const from = "chichebewebdev@gmail.com";
     const to = user.email;
     const subject = "Verify your account";
     const text = "Account verification";
-    const html = `<p>Hey ${user.firstName} ${user.lastName}, please verify your account by clicking the link below...</p> <a href="http://localhost:5173/verify-email/${user._id}/${user.emailToken}">Verify your account</a>`;
+    const html = `<p>Hey ${user.firstName} ${user.lastName}, please verify your account by clicking the link below...</p> <a href="${prodAPIUri}/verify-email/${user._id}/${user.emailToken}">Verify your account</a>`;
 
     await sendEmail({ from, to, subject, text, html });
 
