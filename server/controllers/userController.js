@@ -59,7 +59,7 @@ export const register = async (req, res) => {
     //   expiresIn: "1d",
     // });
 
-    const prodAPIUri = "https://server-wallet.onrender.com/api";
+    const prodAPIUri = "https://my-wallet-app-tgwm.onrender.com";
     const from = "chichebewebdev@gmail.com";
     const to = user.email;
     const subject = "Verify your account";
