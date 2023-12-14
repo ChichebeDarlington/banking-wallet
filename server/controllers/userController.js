@@ -238,19 +238,20 @@ export const getAllUser = async (req, res) => {
 
 export const verifyUser = async (req, res) => {
   const { isVerified, selectedUser } = req.body;
-  if (!isVerified || !selectedUser) {
+  if (!req.body) {
     return res.status(400).json({
       success: false,
       error: "Your ID is needed for your verification",
     });
   }
+
   try {
     const user = await User.findByIdAndUpdate(
       selectedUser,
       { isVerified: isVerified },
       { new: true }
     );
-    // console.log(isVerified);
+
     return res.status(200).json({ user, success: true, msg: "User verified" });
   } catch (error) {
     return res.status(400).json({ success: false, error: error.message });

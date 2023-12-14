@@ -18,11 +18,16 @@ const Users = () => {
         selectedUser: record._id,
         isVerified,
       });
-      console.log(response);
       if (response.success) {
-        message.success(response.msg);
-        getUsers();
-        setReloadUser(false);
+        if (response?.user?.isVerified) {
+          message.success(response.msg);
+          getUsers();
+          setReloadUser(false);
+        } else {
+          message.error("User unverified");
+          getUsers();
+          setReloadUser(false);
+        }
       } else {
         message.error(response.error);
         setReloadUser(false);
